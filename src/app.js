@@ -10,7 +10,7 @@ app.use(cors());
 app.post('/items', async (req,res) => {
     const {text} = req.body
 
-    if(!text) return res.sendStatus(401) 
+    if(!text) return res.sendStatus(404) 
     try {
         await connection.query('INSERT INTO list (text) VALUES ($1)', [text])
         return res.sendStatus(201)
